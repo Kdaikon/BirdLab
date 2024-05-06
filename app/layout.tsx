@@ -1,3 +1,6 @@
+import '@/app/ui/global.css'
+import { inter } from '@/app/ui/fonts';
+
 export default function RootLayout({
   children,
 }: {
@@ -5,7 +8,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      {/* 
+        bodyにinterを設定したのですべての子要素に適応される
+        antialiased　は必要ではないが　フォントをスムーズにする
+      */}
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }
