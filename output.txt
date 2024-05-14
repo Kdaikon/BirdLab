@@ -1,0 +1,111 @@
+フォルダー パスの一覧:  ボリューム Windows
+ボリューム シリアル番号は A86A-AAC8 です
+C:.
+│  .env
+│  .eslintrc.json
+│  .gitignore
+│  .nvmrc
+│  auth.config.ts
+│  auth.ts
+│  middleware.ts
+│  next-env.d.ts
+│  next.config.js
+│  output.txt
+│  package-lock.json
+│  package.json
+│  postcss.config.js
+│  prettier.config.js
+│  README.md
+│  tailwind.config.ts
+│  tsconfig.json
+│  
+├─app
+│  │  layout.tsx
+│  │  page.tsx
+│  │  
+│  ├─dashboard
+│  │  │  layout.tsx
+│  │  │  
+│  │  ├─(overview)
+│  │  │      loading.tsx
+│  │  │      page.tsx
+│  │  │      
+│  │  ├─customers
+│  │  │      page.tsx
+│  │  │      
+│  │  └─invoices
+│  │      │  error.tsx
+│  │      │  page.tsx
+│  │      │  
+│  │      ├─create
+│  │      │      page.tsx
+│  │      │      
+│  │      └─[id]
+│  │          └─edit
+│  │                  not-found.tsx
+│  │                  page.tsx
+│  │                  
+│  ├─lib
+│  │      actions.ts
+│  │      data.ts
+│  │      definitions.ts
+│  │      placeholder-data.js
+│  │      utils.ts
+│  │      
+│  ├─login
+│  │      page.tsx
+│  │      
+│  └─ui
+│      │  acme-logo.tsx
+│      │  button.tsx
+│      │  fonts.ts
+│      │  global.css
+│      │  home.module.css
+│      │  login-form.tsx
+│      │  search.tsx
+│      │  skeletons.tsx
+│      │  
+│      ├─customers
+│      │      table.tsx
+│      │      
+│      ├─dashboard
+│      │      cards.tsx
+│      │      latest-invoices.tsx
+│      │      nav-links.tsx
+│      │      revenue-chart.tsx
+│      │      sidenav.tsx
+│      │      
+│      └─invoices
+│              breadcrumbs.tsx
+│              buttons.tsx
+│              create-form.tsx
+│              edit-form.tsx
+│              pagination.tsx
+│              status.tsx
+│              table.tsx
+│              
+
+│                  
+├─public
+│  │  favicon.ico
+│  │  hero-desktop.png
+│  │  hero-mobile.png
+│  │  opengraph-image.png
+│  │  
+│  └─customers
+│          amy-burns.png
+│          balazs-orban.png
+│          delba-de-oliveira.png
+│          emil-kowalski.png
+│          evil-rabbit.png
+│          guillermo-rauch.png
+│          hector-simpson.png
+│          jared-palmer.png
+│          lee-robinson.png
+│          michael-novotny.png
+│          steph-dietz.png
+│          steven-tey.png
+│          
+└─scripts
+        seed.js
+        
