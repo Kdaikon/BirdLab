@@ -1,5 +1,6 @@
 // This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
 // https://nextjs.org/learn/dashboard-app/fetching-data
+
 const users = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442a',
@@ -36,7 +37,7 @@ const customers = [
   },
   {
     id: '3958dc9e-787f-4377-85e9-fec4b6a6442a',
-    name: 'Steph Dietz',
+    name: 'Steph Dietz ppp',
     email: 'steph@dietz.com',
     image_url: '/customers/steph-dietz.png',
   },
@@ -180,7 +181,74 @@ const revenue = [
   { month: 'Dec', revenue: 4800 },
 ];
 
+  
+const birds = [
+  {
+      id: '123',
+      name: 'オカメインコ',
+      image_url: '/customers/delba-de-oliveira.png',
+  },
+  {
+      id: '124',
+      name: 'セキセイインコ',
+      image_url: '/customers/hector-simpson.png',
+  },
+  {
+      id: '654',
+      name: '文鳥',
+      image_url: '/customers/lee-robinson.png',
+  },
+];
+
+const messages = [
+  {
+      bird_id: birds[0].id,
+      owner_id: users[0].id,
+      content: 'つんちゃんかわいい',
+      date: '2022-12-06',
+  },
+  {
+      bird_id: birds[1].id,
+      owner_id: users[0].id,
+      content: 'つんちゃんかわいい1',
+      date: '2022-12-07',
+  },
+  {
+      bird_id: birds[2].id,
+      owner_id: users[0].id,
+      content: 'つんちゃんかわいい2',
+      date: '2022-12-08',
+  },
+  {
+      bird_id: birds[0].id,
+      owner_id: users[0].id,
+      content: 'つんちゃんかわいい3',
+      date: '2022-12-09',
+  },
+  {
+      bird_id: birds[1].id,
+      owner_id: users[0].id,
+      content: 'つんちゃんかわいい4',
+      date: '2022-12-10',
+  },
+  {
+      bird_id: birds[2].id,
+      owner_id: users[0].id,
+      content: 'つんちゃんかわいい5',
+      date: '2022-12-11',
+  },
+  {
+      bird_id: birds[0].id,
+      owner_id: users[0].id,
+      content: 'つんちゃんかわいい6',
+      date: '2022-12-12',
+  },
+];
+
+
 module.exports = {
+  birds,
+  messages,
   users,
   customers,
   invoices,

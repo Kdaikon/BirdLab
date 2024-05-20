@@ -7,6 +7,9 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  Bird,
+  Message,
+  LatestMessage,
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
@@ -53,6 +56,27 @@ export async function fetchLatestInvoices() {
     throw new Error('Failed to fetch the latest invoices.');
   }
 }
+
+export async function fetchLatestMessages() {
+  noStore();
+  try {
+    const data = await sql<LatestMessage>`
+      SELECT messages.amount, messages.name, birds.image_url, messages.id
+      FROM messages
+      JOIN birds ON messages.bird_id = birds.id
+      ORDER BY messages.date DESC
+      LIMIT 5`;
+
+    const LatestMessages = data.rows.map((message) => ({
+      ...message,
+    }));
+    return LatestMessages;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch the latest messages.');
+  }
+}
+
 
 export async function fetchCardData() {
   noStore();

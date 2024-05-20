@@ -4,8 +4,88 @@ const {
   customers,
   revenue,
   users,
+  birds,
+  messages,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
+
+async function seedMessages(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+    // Create the "invoices" table if it doesn't exist
+    const createTable = await client.sql`
+    CREATE TABLE IF NOT EXISTS messages (
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    bird_id UUID NOT NULL,
+    owner_id UUID NOT NULL,
+    content TEXT NOT NULL,
+    date DATE NOT NULL
+  );
+`;
+
+    console.log(`Created "messages" table`);
+
+    // Insert data into the "invoices" table
+    const insertedMessages = await Promise.all(
+      messages.map(
+        (message) => client.sql`
+        INSERT INTO messages (bird_id, owner_id, content, date)
+        VALUES (${message.bird_id}, ${message.owner_id}, ${message.content}, ${message.date})
+        ON CONFLICT (id) DO NOTHING;
+      `,
+      ),
+    );
+
+    console.log(`Seeded ${insertedMessages.length} messages`);
+
+    return {
+      createTable,
+      messages: insertedMessages,
+    };
+  } catch (error) {
+    console.error('Error seeding messages:', error);
+    throw error;
+  }
+}
+
+async function seedbirds(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+    // Create the "customers" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS birds (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        image_url VARCHAR(255) NOT NULL
+      );
+    `;
+
+    console.log(`Created "birds" table`);
+
+    // Insert data into the "customers" table
+    const insertedBirds = await Promise.all(
+      birds.map(
+        (bird) => client.sql`
+        INSERT INTO birds (id, name, image_url)
+        VALUES (${bird.id}, ${bird.name}, ${bird.image_url})
+        ON CONFLICT (id) DO NOTHING;
+      `,
+      ),
+    );
+
+    console.log(`Seeded ${insertedBirds.length} birds`);
+
+    return {
+      createTable,
+      birds: insertedBirds,
+    };
+  } catch (error) {
+    console.error('Error seeding birds:', error);
+    throw error;
+  }
+}
 
 async function seedUsers(client) {
   try {
@@ -167,6 +247,8 @@ async function main() {
   await seedCustomers(client);
   await seedInvoices(client);
   await seedRevenue(client);
+  await seedMessages(client);
+  await seedbirds(client);
 
   await client.end();
 }

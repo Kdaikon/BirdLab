@@ -22,7 +22,7 @@ export default function Page() {
         <AcmeLogo />
 
       </div>
-      <div className="absolute flex justify-center p-6 z-10 inset-x-0 bottom-40">
+      <div className=" flex p-6 z-10 inset-x-0">
         <Link
           href="/login"
           className="flex items-center gap-5 self-start rounded-lg bg-stone-100 px-6 py-3 text-sm font-medium text-grey-800 transition-colors hover:bg-red-500 md:text-base"

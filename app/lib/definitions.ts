@@ -2,6 +2,32 @@
 // It describes the shape of the data, and what data type each property should accept.
 // For simplicity of teaching, we're manually defining these types.
 // However, these types are generated automatically if you're using an ORM such as Prisma.
+
+//from this
+export type Bird = {
+  id: string,
+  name: string,
+  image_url: string;
+};
+
+export type Message = {
+  bird_id: string,
+  owner_id: string,
+  content: string,
+  date: string,
+}
+
+export type LatestMessage = {
+  id: string;
+  name: string;
+  image_url: string;
+  content: string;
+};
+
+
+//to this
+
+
 export type User = {
   id: string;
   name: string;

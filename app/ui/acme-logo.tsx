@@ -7,7 +7,7 @@ export default function AcmeLogo() {
       className={`${lusitana.className} flex flex-row items-center leading-none text-black`}
     >
       <div className="w-12 h-12 bg-red-500 rounded-full"></div>
-      <p className="text-[44px] pl-2">Bird Site</p>
+      <p className="text-[44px] pl-2">Birds Lab</p>
     </div>
   );
 }
