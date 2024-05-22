@@ -184,17 +184,17 @@ const revenue = [
   
 const birds = [
   {
-      id: '123',
+      id: '423593ef-af21-4f25-9518-c2ce4dd5cf44',
       name: 'オカメインコ',
       image_url: '/customers/delba-de-oliveira.png',
   },
   {
-      id: '124',
+      id: 'cd37cd2e-d937-4a68-b788-ce93b1316a07',
       name: 'セキセイインコ',
       image_url: '/customers/hector-simpson.png',
   },
   {
-      id: '654',
+      id: 'd5709c10-5a74-4a96-a033-c5c25d6c83a4',
       name: '文鳥',
       image_url: '/customers/lee-robinson.png',
   },
