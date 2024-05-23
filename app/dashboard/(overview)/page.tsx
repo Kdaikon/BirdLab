@@ -1,6 +1,7 @@
 import { Card } from '@/app/ui/dashboard/cards';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
+import LatestMessages from '@/app/ui/dashboard/latest-messages';
 import { lusitana } from '@/app/ui/fonts';
 import { fetchRevenue, fetchLatestInvoices,fetchCardData, } from '@/app/lib/data';
 import { Suspense } from 'react';
@@ -34,6 +35,9 @@ export default async function Page() {
         {/* <LatestInvoices latestInvoices={latestInvoices} /> */}
         <Suspense fallback={<LatestInvoicesSkeleton />}>
           <LatestInvoices />
+        </Suspense>
+        <Suspense fallback={<LatestInvoicesSkeleton />}>
+          <LatestMessages />
         </Suspense>
       </div>
     </main>

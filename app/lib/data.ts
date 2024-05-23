@@ -61,7 +61,7 @@ export async function fetchLatestMessages() {
   noStore();
   try {
     const data = await sql<LatestMessage>`
-      SELECT messages.amount, messages.name, birds.image_url, messages.id
+      SELECT messages.content, birds.name, birds.image_url, messages.id
       FROM messages
       JOIN birds ON messages.bird_id = birds.id
       ORDER BY messages.date DESC
