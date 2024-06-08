@@ -23,6 +23,7 @@ export type LatestMessage = {
   image_url: string;
   content: string;
 };
+//MessagesTableも同じ型で行う。
 
 
 //to this

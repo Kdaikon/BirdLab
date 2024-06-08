@@ -151,6 +151,56 @@ export async function fetchFilteredInvoices(
   }
 }
 
+export async function fetchFilteredMessages(
+  query: string,
+  currentPage: number,
+) {
+  noStore();
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+
+  try {
+    const messages = await sql<LatestMessage>`
+      SELECT
+        messages.content,
+        birds.name,
+        birds.image_url,
+        messages.id
+      FROM messages
+      JOIN birds ON messages.bird_id = birds.id
+      WHERE
+        messages.content ILIKE ${`%${query}%`} OR
+        birds.name ILIKE ${`%${query}%`}
+      ORDER BY messages.date DESC
+      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+    `;
+
+    return messages.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch messages.');
+  }
+}
+
+//
+export async function fetchMessagesPages(query: string) {
+  noStore();
+  try {
+    const count = await sql`SELECT COUNT(*)
+    FROM messages
+    JOIN birds ON messages.bird_id = birds.id
+    WHERE
+      messages.content ILIKE ${`%${query}%`} OR
+        birds.name ILIKE ${`%${query}%`}
+  `;
+
+    const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
+    return totalPages;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch total number of messages.');
+  }
+}
+
 export async function fetchInvoicesPages(query: string) {
   noStore();
   try {
@@ -172,6 +222,9 @@ export async function fetchInvoicesPages(query: string) {
     throw new Error('Failed to fetch total number of invoices.');
   }
 }
+
+//
+
 
 export async function fetchInvoiceById(id: string) {
   noStore();
