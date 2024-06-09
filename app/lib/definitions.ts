@@ -5,16 +5,16 @@
 
 //from this
 export type Bird = {
-  id: string,
-  name: string,
+  id: string;
+  name: string;
   image_url: string;
 };
 
 export type Message = {
-  bird_id: string,
-  owner_id: string,
-  content: string,
-  date: string,
+  bird_id: string;
+  owner_id: string;
+  content: string;
+  date: string;
 }
 
 export type LatestMessage = {
@@ -23,7 +23,14 @@ export type LatestMessage = {
   image_url: string;
   content: string;
 };
-//MessagesTableも同じ型で行う。
+
+export type MessagesTable = {
+  id: string;
+  name: string;
+  image_url: string;
+  content: string;
+  date: string;
+};
 
 
 //to this

@@ -9,6 +9,7 @@ import {
   Revenue,
   Bird,
   Message,
+  MessagesTable,
   LatestMessage,
 } from './definitions';
 import { formatCurrency } from './utils';
@@ -159,12 +160,13 @@ export async function fetchFilteredMessages(
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
-    const messages = await sql<LatestMessage>`
+    const messages = await sql<MessagesTable>`
       SELECT
         messages.content,
         birds.name,
         birds.image_url,
-        messages.id
+        messages.id,
+        messages.data
       FROM messages
       JOIN birds ON messages.bird_id = birds.id
       WHERE
