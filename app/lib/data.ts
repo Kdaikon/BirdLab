@@ -166,7 +166,7 @@ export async function fetchFilteredMessages(
         birds.name,
         birds.image_url,
         messages.id,
-        messages.data
+        messages.date
       FROM messages
       JOIN birds ON messages.bird_id = birds.id
       WHERE
@@ -192,7 +192,7 @@ export async function fetchMessagesPages(query: string) {
     JOIN birds ON messages.bird_id = birds.id
     WHERE
       messages.content ILIKE ${`%${query}%`} OR
-        birds.name ILIKE ${`%${query}%`}
+      birds.name ILIKE ${`%${query}%`}
   `;
 
     const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
