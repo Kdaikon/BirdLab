@@ -11,6 +11,7 @@ export type Bird = {
 };
 
 export type Message = {
+  id: string;
   bird_id: string;
   owner_id: string;
   content: string;
@@ -31,6 +32,11 @@ export type MessagesTable = {
   content: string;
   date: string;
 };
+
+export type BirdField = {
+  id: string;
+  name: string;
+}
 
 
 //to this

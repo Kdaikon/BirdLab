@@ -11,6 +11,7 @@ import {
   Message,
   MessagesTable,
   LatestMessage,
+  BirdField,
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
@@ -269,6 +270,25 @@ export async function fetchCustomers() {
   } catch (err) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch all customers.');
+  }
+}
+
+//add
+export async function fetchBirds() {
+  try {
+    const data = await sql<BirdField>`
+      SELECT
+        id,
+        name
+      FROM birds
+      ORDER BY name ASC
+    `;
+
+    const birds = data.rows;
+    return birds;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch all birds.');
   }
 }
 
