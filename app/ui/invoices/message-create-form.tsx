@@ -60,7 +60,7 @@ export default function Form({ birds }: { birds: BirdField[] }) {
               <div className="relative">
                 <input
                   id="message"
-                  name="message"
+                  name="content"
                   type="text"
                   placeholder="Enter message about birds"
                   className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
