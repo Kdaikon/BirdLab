@@ -41,9 +41,9 @@ export default async function Page() {
           <LatestMessages />
         </Suspense>
       </div>
-      <div className="m-1">
+      {/* <div className="m-1">
         <CreateInvoice />
-      </div>
+      </div> */}
     
     </main>
   );
