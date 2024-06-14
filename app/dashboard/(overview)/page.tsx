@@ -7,6 +7,7 @@ import { fetchRevenue, fetchLatestInvoices,fetchCardData, } from '@/app/lib/data
 import { Suspense } from 'react';
 import CardWrapper from '@/app/ui/dashboard/cards';
 import { RevenueChartSkeleton,LatestInvoicesSkeleton, CardsSkeleton, } from '@/app/ui/skeletons';
+import { CreateInvoice } from '@/app/ui/invoices/buttons';
 
 export default async function Page() {
     // const revenue = await fetchRevenue();
@@ -40,6 +41,10 @@ export default async function Page() {
           <LatestMessages />
         </Suspense>
       </div>
+      <div className="m-1">
+        <CreateInvoice />
+      </div>
+    
     </main>
   );
 }
